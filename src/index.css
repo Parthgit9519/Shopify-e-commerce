@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+/* ------------------------------
+   Theme variables (light / dark)
+   ------------------------------ */
+:root {
+   --bg-color: #ffffff;
+   /* page background */
+   --text-color: #0f172a;
+   /* main text (dark gray) */
+   --heading-color: #1e3a8a;  
+   /* headings (indigo) */
+   --muted-color: #6b7280;
+   /* muted / meta text */
+   --card-bg-color: #ffffff;
+   /* card bg (light) */
+   --card-border-color: #e5e7eb;
+   /* card border (light) */
+   --price-color: #0b74ff;
+   /* price highlight */
+   --accent-color: #4f46e5;
+   /* primary button bg - indigo-600 */
+   --btn-text-color: #ffffff;
+   /* button text */
+   --pill-bg: #f3f4f6;
+   /* small pill / tag bg */
+}
+
+.dark-theme {
+   --bg-color: #071025;
+   /* page dark background */
+   --text-color: #e6eef8;
+   /* page text (very light) */
+   --heading-color: #60a5fa;
+   /* headings in dark mode (sky) */
+   --muted-color: #9ca3af;
+   /* muted text in dark */
+   --card-bg-color: #0f1724;
+   /* card background (dark navy) */
+   --card-border-color: #1f2937;
+   /* card border (darker) */
+   --price-color: #93c5fd;
+   /* price highlight (light blue) */
+   --accent-color: #6366f1;
+   /* accent - lighter for dark bg */
+   --btn-text-color: #0b1220;
+   /* button text in dark (darker) */
+   --pill-bg: rgba(255, 255, 255, 0.04);
+}
+
+/* ------------------------------
+   Global helpers binding variables
+   ------------------------------ */
+html,
+body,
+#root {
+   height: 100%;
+}
+
+body {
+   background-color: var(--bg-color);
+   color: var(--text-color);
+   transition: background-color 250ms ease, color 250ms ease;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+/* small helpers so you can keep Tailwind layout but use variable-based colors */
+.app {
+   background-color: var(--bg-color);
+   color: var(--text-color);
+   transition: background-color 250ms ease, color 250ms ease;
+}
+
+/* Card */
+.card {
+   background-color: var(--card-bg-color);
+   border: 1px solid var(--card-border-color);
+   color: var(--text-color);
+   border-radius: 0.75rem;
+   /* rounded-xl */
+   padding: 1rem;
+   /* p-4 */
+   transition: background-color 250ms ease, border-color 250ms ease, color 250ms ease, box-shadow 200ms;
+   box-shadow: 0 6px 15px rgba(2, 6, 23, 0.04);
+}
+
+/* Slightly stronger shadow on hover */
+.card:hover {
+   box-shadow: 0 12px 30px rgba(2, 6, 23, 0.08);
+}
+
+/* Title, muted, price, pill and buttons using variables */
+.card-title {
+   color: var(--heading-color);
+   font-weight: 600;
+}
+
+.card-muted {
+   color: var(--muted-color);
+}
+
+.price {
+   color: var(--price-color);
+   font-weight: 700;
+}
+
+.pill {
+   background: var(--pill-bg);
+   color: var(--text-color);
+   padding: 0.25rem 0.5rem;
+   border-radius: 9999px;
+   font-size: 0.75rem;
+}
+
+/* Buttons */
+.btn-primary {
+   background: var(--accent-color);
+   color: var(--btn-text-color);
+   padding: 0.55rem 0.9rem;
+   border-radius: 0.75rem;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.5rem;
+   font-weight: 600;
+   transition: transform .12s ease, filter .12s ease;
+}
+
+.btn-primary:active {
+   transform: scale(.98);
+}
+
+.btn-primary[disabled] {
+   opacity: .6;
+   cursor: not-allowed;
+   transform: none;
+}
+
+/* Quantity buttons (plus/minus) neutral style that fits both themes */
+.qty-btn {
+   background: transparent;
+   border: 1px solid var(--card-border-color);
+   color: var(--text-color);
+   padding: 0.25rem 0.6rem;
+   border-radius: 0.5rem;
+}
+
+/* Image wrapper (ensure no white block behind images) */
+.img-wrapper {
+   background: transparent;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+/* Small responsiveness helper already covered by Tailwind; these classes just add color control */
